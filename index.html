@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prabesh Khanal | Graphic Designer & Shooter</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-main: #0b0f17;
+      --bg-card: #151c28;
+      --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      --accent-solid: #00f2fe;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 15, 23, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-solid);
+    }
+
+    /* 3-Line Hamburger Menu Icon */
+    .menu-btn {
+      display: none;
+      font-size: 22px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* Hero Section with Custom Background Image */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 80px 8%;
+      background: linear-gradient(180deg, rgba(11, 15, 23, 0.75) 0%, rgba(11, 15, 23, 0.95) 100%), 
+                  url('1783684125684.PNG') no-repeat center center/cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--accent-solid);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: var(--accent-gradient);
+      color: #0b0f17;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.4);
+    }
+
+    /* Social Media Links Layout */
+    .social-rows-container {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
+    }
+
+    .social-row-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .social-row-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      transition: 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .social-row-card i {
+      font-size: 18px;
+      color: var(--accent-solid);
+      transition: 0.3s ease;
+    }
+
+    .social-row-card:hover {
+      border-color: var(--accent-solid);
+      transform: translateY(-3px);
+      background: rgba(0, 242, 254, 0.05);
+    }
+
+    /* General Section Styling */
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 50px;
+      height: 3px;
+      background: var(--accent-gradient);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .about-img img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-img:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-text h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted);
+    }
+
+    .info-item i {
+      color: var(--accent-solid);
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 35px 25px;
+      border-radius: 16px;
+      text-align: center;
+      transition: 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 242, 254, 0.3);
+    }
+
+    .service-card i {
+      font-size: 36px;
+      color: var(--accent-solid);
+      margin-bottom: 20px;
+    }
+
+    .service-card h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Portfolio Gallery Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      height: 380px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 15, 23, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: 0.3s ease;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h4 {
+      font-size: 18px;
+      color: #fff;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-item i {
+      font-size: 22px;
+      color: var(--accent-solid);
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus, 
+    .contact-form textarea:focus {
+      border-color: var(--accent-solid);
+    }
+
+    .contact-form textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #07090e;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Mobile Layout */
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 220px;
+        height: 100vh;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 40px 20px;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hero {
+        padding: 100px 5% 60px 5%;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 34px;
+      }
+
+      .social-rows-container {
+        align-items: center;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+      }
+
+      .about-container, 
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">PRABESH KHANAL</div>
+    
+    <!-- 3-Line Mobile Navigation Toggle Button -->
+    <div class="menu-btn" id="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation Drawer Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero / Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">GRAPHIC DESIGNER & SHOOTER</span>
+      <h1>Prabesh Khanal</h1>
+      <p>Crafting high-impact graphic design, photo shoots, and video content based in Pokhara, Nepal.</p>
+      
+      <a href="#contact" class="btn">Get In Touch</a>
+
+      <!-- Social Media Links -->
+      <div class="social-rows-container">
+        <span class="social-row-title">Connect With Me</span>
+        <div class="social-grid">
+          <a href="https://wa.me/9779748215587" target="_blank" class="social-row-card">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://www.facebook.com/share/1DFywjKEmL/" target="_blank" class="social-row-card">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/khanalprabesh2065?igsh=eGZsb2oxOWEycGQ2" target="_blank" class="social-row-card">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://youtube.com/@khanalhokhanal?si=UPc14j9Nwlcv_wSI" target="_blank" class="social-row-card">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a href="https://tiktok.com/@khanalprabesh2065" target="_blank" class="social-row-card">
+            <i class="fab fa-tiktok"></i>
+            <span>TikTok</span>
+          </a>
+          <a href="https://t.me/Prabeshkhanal" target="_blank" class="social-row-card">
+            <i class="fab fa-telegram-plane"></i>
+            <span>Telegram</span>
+          </a>
+          <a href="https://www.snapchat.com/add/prabesh_khana26?share_id=X-u_HiwF72A&locale=en-NP" target="_blank" class="social-row-card">
+            <i class="fab fa-snapchat-ghost"></i>
+            <span>Snapchat</span>
+          </a>
+          <a href="https://www.threads.com/@khanalprabesh2065" target="_blank" class="social-row-card">
+            <i class="fa-solid fa-threads"></i>
+            <span>Threads</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-container">
+      <div class="about-img">
+        <!-- Main profile photo without sunglasses -->
+        <img src="Messenger_creation_5EF95...-B516-D8C3963FFAED.JPEG" alt="Prabesh Khanal Suit Portrait">
+      </div>
+      <div class="about-text">
+        <h3>Graphic Designer & Creative Shooter</h3>
+        <p>
+          I offer dedicated graphic design, photo retouching, and video production services tailored for individuals, brands, and local businesses in Pokhara, Nepal.
+        </p>
+        <div class="info-list">
+          <div class="info-item">
+            <i class="fas fa-location-dot"></i>
+            <span>Pokhara, Nepal</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>khanalprabesh94@gmail.com</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>+977 9748215587</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-palette"></i>
+        <h4>Graphic Design</h4>
+        <p>Posters, social media graphics, branding identity, and custom artwork.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-camera"></i>
+        <h4>Photography</h4>
+        <p>Outdoor portraits, events, landscapes, and professional photo shoots.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-video"></i>
+        <h4>Videography</h4>
+        <p>Vertical reels, promo videos, camera shooting, and cinematic video editing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Gallery Section -->
+  <section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_5EF95...-B516-D8C3963FFAED.JPEG" alt="Formal Suit Portrait">
+        <div class="portfolio-overlay">
+          <h4>Formal Suit Portrait</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_FF3B3...B5FB-22E2838BAC6A.JPEG" alt="Formal Blue Suit Shoot">
+        <div class="portfolio-overlay">
+          <h4>Formal Event Shoot</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_FD929...-A5B9-71E0FCEE6BDF.JPEG" alt="Mountain View Hillside Shoot">
+        <div class="portfolio-overlay">
+          <h4>Outdoor Mountain Shoot</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_1253D...-A244-FAB149EE346B.JPEG" alt="Prabesh Photography Landscape View">
+        <div class="portfolio-overlay">
+          <h4>Landscape Shot</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_806A6...-83AD-64E7B1315A20.JPEG" alt="Traditional Garland Cultural Shoot">
+        <div class="portfolio-overlay">
+          <h4>Cultural Shoot</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_4BA7F...820B-FA9DC1A84832.JPEG" alt="Traditional Vest Portrait">
+        <div class="portfolio-overlay">
+          <h4>Traditional Portrait</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Messenger_creation_3EF205...AAA-CA13A6AF22C8.JPEG" alt="Hilltop Scenic View">
+        <div class="portfolio-overlay">
+          <h4>Scenic View Photography</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="1783684125684.PNG" alt="Misty Forest Composite Edit">
+        <div class="portfolio-overlay">
+          <h4>Misty Forest Creative Edit</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="1783684087337.PNG" alt="Cultural Misty Forest Composite">
+        <div class="portfolio-overlay">
+          <h4>Cultural Forest Edit</h4>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h5>Email</h5>
+            <p><a href="mailto:khanalprabesh94@gmail.com">khanalprabesh94@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <h5>WhatsApp</h5>
+            <p><a href="https://wa.me/9779748215587" target="_blank">+977 9748215587</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h5>Location</h5>
+            <p>Pokhara, Nepal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="#">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Prabesh Khanal. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Drawer Menu Script -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
